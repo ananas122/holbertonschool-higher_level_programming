@@ -8,5 +8,4 @@ def fizzbuzz():
         elif num % 5 == 0:
             print("Buzz", end=" ")
         else:  # Ni multiple de 3 ni de 5
-            print(num, end=" ")
-    print()
+            print("{:d}".format(num), end=" ")
