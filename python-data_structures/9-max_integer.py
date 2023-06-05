@@ -7,8 +7,8 @@ def max_integer(my_list=[]):
     if my_list == 0:
         return None
 #  initialize to 0 for to get the first number in the list
-    max_value = my_list[0] 
-    for i in my_list:
-        if i > max_value:
-            max_value = i
+    max_value = my_list[0]
+    for number in my_list:
+        if number > max_value:
+            max_value = number
     return max_value
