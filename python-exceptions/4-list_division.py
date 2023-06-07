@@ -3,7 +3,6 @@
 
 
 def list_division(my_list_1, my_list_2, list_length):
-    """Divides element by element 2 lists"""
     result = []
     for i in range(list_length):
         division = 0
@@ -11,8 +10,9 @@ def list_division(my_list_1, my_list_2, list_length):
             division = my_list_1[i] / my_list_2[i]
         except (TypeError):
             print("wrong type")
+
         except (ZeroDivisionError, ValueError):
-            print("division by zero")
+            print("division by 0")
         except (IndexError):
             print("out of range")
         finally:
