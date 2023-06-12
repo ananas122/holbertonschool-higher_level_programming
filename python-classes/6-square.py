@@ -11,10 +11,6 @@ class Square:
         self.__position = position
 
     @property
-    def position(self):
-        return self.__position
-
-    @property
     def size(self):
         return self.__size
 
@@ -26,6 +22,10 @@ class Square:
             raise ValueError("the message size must be >= 0")
         else:
             self.__size = value
+
+    @property
+    def position(self):
+        return self.__position
 
     @position.setter
     def position(self, value):
