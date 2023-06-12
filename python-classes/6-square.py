@@ -6,9 +6,9 @@ class Square:
     """Define a class Square that defines a square by: (based on 5-square.py"""
     def __init__(self, size=0, position=(0, 0)):
         self.__size = 0
-        self.size = size
+        self.__size = size
         self.__position = 0
-        self.position = position
+        self.__position = position
 
     @property
     def position(self):
