@@ -2,7 +2,7 @@
 class Square:
     """Define a class Square that defines a square by: (based on 3-square.py"""
     def __init__(self, size=0):
-        self.__size = size
+        self.size = size
 
     @property
     def size(self):
@@ -21,9 +21,9 @@ class Square:
         return self.__size * self.size
 
     def my_print(self):
-        for i in range(self.size):
-            for len in range(self.size):
-                print("#", end=" ")
+        for index in range(self.__size):
+            for lenght in range(self.__size):
+                print("#", end="")
             print()
-        if self.size == 0:
+        if self.__size == 0:
             print()
