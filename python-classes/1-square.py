@@ -2,7 +2,6 @@
 
 
 class Square:
+    """class that defines a square"""
     def __init__(self, size):  # initial value size for square
         self.__size = size  # private instance attribute for square size
-
-
