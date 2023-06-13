@@ -8,8 +8,8 @@ class Rectangle:
     def __init__(self, width=0, height=0):
         """Initialize a new rectangle.
         Args:
-            width (int): The width of the new rectangle.
-            height (int): The height of the new rectangle.
+            width: The width of the new rectangle.
+            height: The height of the new rectangle.
         """
         self.__width = width
         self.__height = height
@@ -38,7 +38,7 @@ class Rectangle:
         """Set the height of the rectangle."""
         if not isinstance(value, int):
             raise TypeError("height must be an integer")
-        elif value < 0:
+        if value < 0:
             raise ValueError("height must be >= 0")
         self.__height = value
 
@@ -46,5 +46,6 @@ class Rectangle:
         return self.width * self.height
 
     def perimeter(self):
-        if self.width or self.height == 0:
-            return 2 * (self.width + self.height)
+        if self.height == 0 or self.width == 0:
+            return 0
+        return (self.width + self.height) * 2
