@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 class Rectangle:
     """Represent a rectangle"""
 
@@ -27,3 +28,13 @@ class Rectangle:
     @property
     def height(self):
         """Get the current height of the rectangle."""
+        return self.__height
+
+    @height.setter
+    def height(self, value):
+        """Set the height of the rectangle."""
+        if not isinstance(value, int):
+            raise TypeError("height must be an integer")
+        elif value < 0:
+            raise ValueError("height must be >= 0")
+        self.__height = value
