@@ -10,29 +10,17 @@ class Rectangle:
     """
 
     def __init__(self, width=0, height=0):
-        """Instantiates width and height using property setter
-
+        """Initialize a new rectangle.
         Args:
-            width: width of rectangle
-            height: height of rectangle
+            width (int): The width of the new rectangle.
+            height (int): The height of the new rectangle.
         """
+
         self.width = width
         self.height = height
 
-
     @property
     def width(self):
-        """width: width of rectangle
-
-        setter validates value is an integer >= 0
-
-        Parameter:
-            value: value of the width
-
-        Raises:
-            TypeError: if value is not an integer
-            ValueError: if value is < 0
-        """
         return self.__width
 
     @width.setter
@@ -45,17 +33,6 @@ class Rectangle:
 
     @property
     def height(self):
-        """height: height of rectangle
-
-        setter validates value is an integer >= 0
-
-        Parameter:
-            value: value of the height
-
-        Raises:
-            TypeError: if value is not an integer
-            ValueError: if value is < 0
-        """
         return self.__height
 
     @height.setter
@@ -75,7 +52,7 @@ class Rectangle:
         if self.height == 0 or self.width == 0:
             return 0
         return (self.width + self.height) * 2
-    
+
     def __str__(self):
         """Returns a string of Rectangle instance using #, empty string"""
         if self.width == 0 or self.height == 0:
