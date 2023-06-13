@@ -59,6 +59,6 @@ class Rectangle:
             return ""
         row = "#" * self.width
         rect = row
-        for i in range(self.height - 1):
+        for i in range(self.height):
             rect += "\n" + row
         return rect
