@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-Module creates the Rectangle class 6-rectangle.py
+Module creates the Rectangle class by 6-rectangle.py
 """
 
 
@@ -10,7 +10,6 @@ class Rectangle:
     """
     number_of_instances = 0  # New attribut of instances of Rectangle class
     print_symbol = "#"
-
 
     def __init__(self, width=0, height=0):
         """Initialize a new rectangle.
