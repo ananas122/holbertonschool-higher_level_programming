@@ -24,8 +24,8 @@ Float with int:
 	 10
 
 Int with float:
-	 >>> add_integer(5, 7.8)
-	 12
+	 >>> add_integer(1, 7.8)
+	 8
 
 Float overflow
 	 >>> add_integer(100, float("inf"))
