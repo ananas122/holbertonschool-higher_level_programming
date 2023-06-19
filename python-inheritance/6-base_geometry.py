@@ -6,5 +6,9 @@ Defines an empty class BaseGeometry.
 
 
 class BaseGeometry:
+    """Define an area"""
+
     def area(self):
-        raise Exception("area() is not implemented")
+    """raise NotImplementedError"""
+
+    raise Exception("area() is not implemented")
