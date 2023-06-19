@@ -2,6 +2,10 @@
 """
 Module 8-rectangle
 class BaseGeometry (based on 7-base_geometry.py).
+ width and height must be private.
+        No getter or setter
+        width and height must be positive integers,
+        validated by integer_validator
 """
 
 
@@ -12,13 +16,8 @@ class Rectangle(BaseGeometry):
     """inherits from BaseGeometry"""
 
     def __init__(self, width, height):
-        """validate and initialize width and height
-        Args:
-            width (int): private
-            height (int): private
-        """
-
-        super().integer_validator("width", width)
-        self.__width = width
+        """Initializes a new Rectangle"""
         super().integer_validator("height", height)
+        super().integer_validator("width", width)
         self.__height = height
+        self.__width = width
