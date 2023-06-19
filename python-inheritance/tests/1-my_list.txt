@@ -23,13 +23,13 @@ TEST :
     >>> my_list.append(2)
 
     >>> my_list
-    [1, 4, 2]
+    [1, 4, 6]
 
     >>> my_list.print_sorted()
-    [1, 2, 4]
+    [1, 6, 4]
 
     >>> my_list
-    [1, 4, 2]
+    [1, 4, 6]
 
     >>> my_list = MyList([0, 1, 3])
 
