@@ -19,7 +19,9 @@ class Rectangle(BaseGeometry):
     """ rectangle class inherits from basegeometry """
 
     def __init__(self, width, height):
-        """ initialization """
+        """
+        Initializes a rectangle
+        """
         super().integer_validator("height", height)
         super().integer_validator("width", width)
         self.__height = height
