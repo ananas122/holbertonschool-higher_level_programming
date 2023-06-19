@@ -28,8 +28,3 @@ class Rectangle(BaseGeometry):
     def __str__(self):
         """ returns [Rectangle] <width>/<height> string """
         return f"[Rectangle] {self.__width}/{self.__height}"
-
-  
-   
-    
-    
