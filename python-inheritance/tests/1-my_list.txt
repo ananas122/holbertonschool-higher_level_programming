@@ -39,7 +39,7 @@ TEST :
     >>> my_list.print_sorted()
     [3, 0, 1]
 
-    >>> my_list = MyList("Goodbye")
+    >>> my_list = MyList("Good")
     
     >>> my_list
     ['G', 'o', 'o', 'd']
