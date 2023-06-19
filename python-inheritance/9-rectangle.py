@@ -20,7 +20,6 @@ class Rectangle(BaseGeometry):
         self.__height = height
         self.__width = width
 
-
     def area(self):
         """ returns the area of the rectangle """
         return self.__width * self.__height
