@@ -3,8 +3,7 @@
 using a JSON representation """
 import json
 
-
 def save_to_json_file(my_obj, filename):
-    """ Write a JSON representation """
-    with open('data.json', "w") as filename:
+    """ Write a JSON representation for to serial """
+    with open('my_obj', "w") as filename:
         json.dump(my_obj, filename)
