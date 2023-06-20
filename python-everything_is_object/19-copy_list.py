@@ -1,4 +1,4 @@
-#!usr/bin/python3
+#!/usr/bin/python3
 """ Write a function def copy_list(a_list): that returns a copy of a list. """
 
 
