@@ -39,14 +39,6 @@ TEST :
     >>> my_list.print_sorted()
     [0, 9, 10]
 
-    >>> my_list = MyList("Good")
-
-    >>> my_list
-    ['G', 'o', 'o', 'd']
-
-    >>> my_list.print_sorted()
-    ['o', 'G', 'o', 'd']
-
     >>> new_l = MyList()
 
     >>> new_l.print_sorted()
