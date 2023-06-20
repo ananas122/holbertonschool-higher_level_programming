@@ -3,5 +3,5 @@
 
 
 def copy_list(a_list):
-    """ Copy a list """
+    """ Copy a list. """
     return list(a_list)
