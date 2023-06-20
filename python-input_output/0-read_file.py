@@ -5,5 +5,5 @@
 def read_file(filename=""):
 """ Read a file and prints it to stdout"""
     with open(filename, mode="r", encoding="utf-8") as file:
-        print(file.read())
+        print(file.read(), end="")
 
