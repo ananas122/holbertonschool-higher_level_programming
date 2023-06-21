@@ -2,6 +2,7 @@
 """ Write a class Student that defines a student by:
 (based on 10-student.py)"""
 
+
 class Student:
     """ Defines student class"""
     def __init__(self, first_name, last_name, age):
@@ -23,4 +24,4 @@ class Student:
     def reload_from_json(self, json):
         """Replaces all attributes of instance."""
         for key, value in json.items():
-           setattr(self, key, value)
+            setattr(self, key, value)
