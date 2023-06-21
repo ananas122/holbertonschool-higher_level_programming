@@ -12,23 +12,12 @@ class Student:
         self.age = age
 
     def to_json(self, attrs=None):
-        """ Returns a JSON representation of the instance """
-        # If no attributes were specified, return the instance's dict
-        if attrs is None:
-            return self.__dict__
-
-        # If a list of attributes was specified, filter the dict
-        elif isinstance(attrs, list):
-
-            # Create a new dict empty for storing attributes specified
-            newDict = {}
-
-            # Loop over each key-value pair in the instance dict
+        """Retourne une représentation JSON de l'instance."""
+        if isinstance(attrs, list):
+            new_dict = {}
             for key, value in self.__dict__.items():
-
-                # check if the key is already in the dict
                 if key in attrs:
-                    # If the key is present, add the pair to a new dict
-                    newDict[key] = value
+                    new_dict[key] = value
+            return new_dict
 
-            return json.dumps(newDict)
+        return self.__dict__
