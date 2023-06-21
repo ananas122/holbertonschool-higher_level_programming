@@ -1,6 +1,5 @@
 #!/usr/bin/python3
-""" Write a class Student that defines a student by public instances attributes,
-instanciations, and public method"""
+""" Write a function that reload json """
 
 
 class Student:
@@ -11,11 +10,7 @@ class Student:
         self.age = age
 
     def to_json(self, attrs=None):
-        """
-        Returns a JSON representation of the instance
-        :param attrs: List of attributes to include in the generated JSON
-        :return: A JSON representation of the instance
-        """
+        """ Returns a JSON representation of the instance"""
         # If no attributes were specified, return the instance's dictionary
         if attrs is None:
             return self.__dict__
