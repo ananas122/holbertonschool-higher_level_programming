@@ -10,7 +10,7 @@ class Student:
         self.age = age
 
     def to_json(self, attrs=None):
-        """ Returns a JSON representation of the instance"""
+        """ Returns a JSON representation of the instance """
         # If no attributes were specified, return the instance's dictionary
         if attrs is None:
             return self.__dict__
