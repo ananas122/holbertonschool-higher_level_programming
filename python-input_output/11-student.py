@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-
+import json
 
 class Student:
     """ Defines student class"""
@@ -22,5 +22,6 @@ class Student:
 
 
     def reload_from_json(self, json):
-        if json
-            self.__dict__ == json
+        """Replaces all attributes of instance."""
+        for key, value in json.items():
+            setattr(self, key, value)
