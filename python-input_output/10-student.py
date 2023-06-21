@@ -14,18 +14,14 @@ class Student:
 
 
     def to_json(self, attrs=None):
-        if attrs is None:
-            return json.dumps(self.__dict__)
-
-        if not isinstance(attrs, list):
-            return json.dumps(self.__dict__)
+         if attrs is None or type(attrs) is not list:
+            return self.__dict__
 
         new_dict = {}
         for attr in attrs:
-            if not isinstance(attr, str):
-                return json.dumps(self.__dict__)
-
-            if attr in self.__dict__:
-                new_dict[attr] = self.__dict__[attr]
-
-        return json.dumps(new_dict)
+            if type(attr) is not str:
+                return self.__dict__
+            else:
+                if attr in self.__dict__:
+                    new_dict[attr] = self.__dict__[attr]
+        return new_dict
