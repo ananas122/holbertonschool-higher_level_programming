@@ -23,5 +23,5 @@ class Student:
     def reload_from_json(self, json):
         """Replaces all attributes of instance."""
         for key, value in json.items():
-            if hasattr(self, key):
-                setattr(self, key, value)
+            if key in self.__dict__:
+                self.__dict__[key] = value
