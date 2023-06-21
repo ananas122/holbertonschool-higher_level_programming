@@ -11,9 +11,15 @@ class Student:
         self.last_name = last_name
         self.age = age
 
-    def to_json(self, attrs=None):
-        """Retourne une représentation JSON de l'instance."""
-        if isinstance(attrs, list):
+    def to_json(self, attrs: list[str] = None) -> dict:
+   
+        if attrs is None:
+            return self.__dict__
+
+        if attrs:
+            if not all(isinstance(attr, str) for attr in attrs):
+                raise TypeError("Tous les attributs de la liste doivent être des chaînes de caractères.")
+
             new_dict = {}
             for key, value in self.__dict__.items():
                 if key in attrs:
