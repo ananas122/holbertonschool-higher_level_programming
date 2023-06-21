@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 """ Write a function that reload json """
+import json
 
 
 class Student:
@@ -35,4 +36,4 @@ class Student:
 
     def reload_from_json(self, json):
         """ reloads from json """
-        self.__dict__ = json
+        self.__dict__.update(json)
