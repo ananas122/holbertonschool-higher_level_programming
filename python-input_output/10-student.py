@@ -31,4 +31,4 @@ class Student:
                     # If the key is present, add the pair to a new dict
                     newDict[key] = value
 
-        return newDict
+            return json.dumps(newDict)
