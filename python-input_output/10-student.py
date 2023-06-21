@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+""" This function is used to generate the output of the command """
+import json
+
 
 class Student:
     """ Defines a class student."""
@@ -28,4 +31,4 @@ class Student:
                     # If the key is present, add the pair to a new dict
                     newDict[key] = value
 
-            return newDict
+        return newDict
