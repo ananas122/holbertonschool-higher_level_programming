@@ -13,7 +13,7 @@ Exception: area() is not implemented
 Traceback (most recent call last):
 ValueError: width must be greater than 0
 
->>> a.integer_validator("width", -5)
+>>> a.integer_validator("width", -9)
 Traceback (most recent call last):
 ValueError: width must be greater than 0
 

@@ -21,9 +21,7 @@ class Rectangle(BaseGeometry):
         self.__width = width
 
     def area(self):
-        """ returns the area of the rectangle """
         return self.__width * self.__height
 
     def __str__(self):
-        """ returns [Rectangle] <width>/<height> string """
         return f"[Rectangle] {self.__width}/{self.__height}"

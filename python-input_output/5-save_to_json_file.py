@@ -7,4 +7,4 @@ import json
 def save_to_json_file(my_obj, filename):
     """ Write a JSON representation for to serial """
     with open(filename, "w") as filename:
-        json.dump(my_obj, filename)
+        return json.dump(my_obj, filename)

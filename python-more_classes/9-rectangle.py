@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-Module creates the Rectangle class by 7-rectangle.py
+Module creates the Rectangle class by 8-rectangle.py
 """
 
 

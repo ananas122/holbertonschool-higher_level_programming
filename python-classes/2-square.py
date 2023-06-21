@@ -3,7 +3,6 @@
 
 
 class Square:
-    '''defined square by: (based on 1-square.py)'''
 
     def __init__(self, size=0):
         if not isinstance(size, int):

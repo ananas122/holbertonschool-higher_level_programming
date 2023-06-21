@@ -3,13 +3,9 @@
 
 
 def search_replace(my_list, search, replace):
-    if my_list is None:
+    if my_list is None or search is None:
         return None
-    if search is None:
-        return None
-    if replace is None:
-        return None
-    if search == replace:
+    if replace is None or search == replace:
         return my_list
     if search not in my_list:
         return my_list

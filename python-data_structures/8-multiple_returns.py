@@ -3,6 +3,6 @@
 
 
 def multiple_returns(sentence):
-    if sentence == "":
-        return (0, None)
+    if sentence == "": # no return statement for empty string returns a tuple
+        return (0, None) # empty string returns (0, None) as a tuple with len 0 and the 1st char returned as None as a tuple
     return (len(sentence), sentence[0])

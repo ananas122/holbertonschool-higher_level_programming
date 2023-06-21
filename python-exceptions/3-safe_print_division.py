@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Write a func that prints the first x elements of a list and only int"""
+"""Write a function that divides 2 integers and prints the result"""
 
 
 def safe_print_division(a, b):
