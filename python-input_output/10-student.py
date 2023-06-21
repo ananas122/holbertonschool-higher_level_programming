@@ -11,18 +11,17 @@ class Student:
         self.last_name = last_name
         self.age = age
 
-    def to_json(self, attrs = None):
+    def to_json(self, attrs=None):
    
-        if attrs is None:
+        if attrs is None or type(attrs) is not list:
             return self.__dict__
 
-        if attrs:
-            if not all(isinstance(attr, str) for attr in attrs):
-               raise TypeError
-            new_dict = {}
+        new_dict = {}
+        if not all(isinstance(attr, str) for attr in attrs):
+            return self.__dict__
+        else:
             for key, value in self.__dict__.items():
                 if key in attrs:
                     new_dict[key] = value
-            return new_dict
+        return new_dict
 
-        return self.__dict__
