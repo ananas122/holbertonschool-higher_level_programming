@@ -18,8 +18,7 @@ class Student:
 
         if attrs:
             if not all(isinstance(attr, str) for attr in attrs):
-                raise TypeError("Tous les attributs de la liste doivent être des chaînes de caractères.")
-
+               raise TypeError
             new_dict = {}
             for key, value in self.__dict__.items():
                 if key in attrs:
