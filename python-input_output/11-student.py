@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-import json
+
 
 class Student:
     """ Defines student class"""
@@ -19,7 +19,6 @@ class Student:
             return new_dict
         else:
             return self.__dict__
-
 
     def reload_from_json(self, json):
         """Replaces all attributes of instance."""
