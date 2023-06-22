@@ -8,13 +8,17 @@ imports the "save_to_json_file" and "load_from_json_file" functions from their r
 import json
 import sys
 
-from my module import save_to_json_file, load_from_json_file
+# Retrieve all arguments passed to the script
+args = sys.argv[1:]
 
-    try:
-        my_list = load_from_json_file("add_item.json")
-    except FileNotFoundError:
-        my_list = []
-    for i in range(1, len(sys.argv)):
-        my_list.append(sys.argv[i])
-    save_to_json_file(my_list, "add_item.json")
+# Create an empty list to store the arguments
+my_list = []
 
+# Add each argument to the list
+for arg in args:
+    my_list.append(arg)
+
+# Open the file in write mode
+with open("add_item.json", "w") as file:
+    # Write the list to the file as JSON
+    json.dump(my_list, file)
