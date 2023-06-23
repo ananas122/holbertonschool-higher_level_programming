@@ -1,14 +1,12 @@
 #!/usr/bin/python3
 """
-imports the "save_to_json_file" and "load_from_json_file" from their respective files,
-    attempts to load a list from a file named "add_item.json"
-    creates an empty list if it does not exist.
-    The script then adds all command-line arguments starting from the second one to the list,
-    saves the updated list back to the file using the "save_to_json_file" function.
+    To add all command-line args starting from the second one to the list,
+    saves the updated list back to the file using the "save_to_json_file"
 """
 import json
 import sys
-from add_item import save_to_json_file, load_from_json_file
+save_to_json_file = __import__('5-save_to_json_file').save_to_json_file
+load_from_json_file = __import__('6-load_from_json_file').load_from_json_file
 
 
 # Retrieve all arguments passed to the script
