@@ -9,11 +9,15 @@ save_to_json_file = __import__('5-save_to_json_file').save_to_json_file
 load_from_json_file = __import__('6-load_from_json_file').load_from_json_file
 
 
-# Retrieve all arguments passed to the script
-args = sys.argv[1:]
-
-# Create an empty list to store the arguments
-my_list = []
+# Load the existing list from the JSON file, or create an empty list
+try:
+    # Try to open the "add_item.json" file in read mode
+    with open("add_item.json", "r") as f:
+        # Load the list from the file using the json.load function
+        my_list = json.load(f)
+# If the file doesn't exist, create an empty list
+except FileNotFoundError:
+    my_list = []
 
 # Add each argument to the list
 for arg in args:
