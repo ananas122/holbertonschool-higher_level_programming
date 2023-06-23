@@ -20,7 +20,7 @@ except FileNotFoundError:
     my_list = []
 
 # Add each argument to the list
-for arg in args:
+for arg in sys.args[1:]:
     my_list.append(arg)
 
 # Open the file in write mode
