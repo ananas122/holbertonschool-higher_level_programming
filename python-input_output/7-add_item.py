@@ -9,21 +9,17 @@ save_to_json_file = __import__('5-save_to_json_file').save_to_json_file
 load_from_json_file = __import__('6-load_from_json_file').load_from_json_file
 
 
-# Load the existing list from the JSON file, or create an empty list
 try:
-    # Try to open the "add_item.json" file in read mode
-    with open("add_item.json", "r") as f:
-        # Load the list from the file using the json.load function
-        my_list = json.load(f)
-# If the file doesn't exist, create an empty list
-except FileNotFoundError:
-    my_list = []
+    # Try to load the list from the "add_item.json" file using the file 6
+    json_list = load_from_json_file("add_item.json")
 
-# Add each argument to the list
-for arg in sys.args[1:]:
-    my_list.append(arg)
+    # Add each argument passed in the command line to the list
+    for item in sys.argv[1:]:
+        json_list.append(item)
 
-# Open the file in write mode
-with open("add_item.json", "w") as file:
-    # Write the list to the file as JSON
-    json.dump(my_list, file)
+    # Save the updated list to the "add_item.json" file using file 5
+    save_to_json_file(json_list, "add_item.json")
+
+# If exceptions, save the args passed in the command line to the file instead
+except Exception:
+    save_to_json_file(sys.argv[1:], "add_item.json")
