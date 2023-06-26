@@ -8,7 +8,6 @@ class Rectangle(Base):
 
     def __init__(self, width, height, x=0, y=0, id=None):
         """Initializes a Rectangle instance. """
-
         self.width = width
         self.height = height
         self.x = x
@@ -74,3 +73,36 @@ class Rectangle(Base):
     def area(self):
         """Returns the calculated area of Rectangle instance"""
         return self.width * self.height
+
+    def __str__(self):
+        # Define a string representation of a Rectangle object with id, x, y, width, and height attributes
+        return f"[Rectangle]({self.id}) {self.x}/{self.y} - {self.width}/{self.height}"
+
+    def display(self):
+        """Returns the rectangle as a string representation"""
+        # Loop through each row
+        for row in range(self.height):
+            # Loop through each column
+            for colomn in range(self.width):
+                # Print the "#" character without going to a new line
+                print("#", end="")
+            # Go to a new line after each row is printed
+            print()
+
+    def __str__(self):
+        """Define a string representation of a Rectangle object with id, x, y, width, and height attributes"""
+        return f"[Rectangle] ({self.id}) {self.x}/{self.y} - {self.width}/{self.height}"
+
+    def update(self, *args):
+        """Update the rectangle """
+        if len(args) >= 1:
+            self.id = args[0]
+        if len(args) >= 2:
+            self.width = args[1]
+        if len(args) >= 3:
+            self.height = args[2]
+        if len(args) >= 4:
+            self.x = args[3]
+        if len(args) >= 5:
+            self.y = args[4]
+        print(end= '')
