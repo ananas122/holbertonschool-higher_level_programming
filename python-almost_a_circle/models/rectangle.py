@@ -74,7 +74,6 @@ class Rectangle(Base):
         """Returns the calculated area of Rectangle instance"""
         return self.width * self.height
 
-
     def __str__(self):
         """Define a string representation of a Rectangle obj """
         return (f"[Rectangle]({self.id}) "
