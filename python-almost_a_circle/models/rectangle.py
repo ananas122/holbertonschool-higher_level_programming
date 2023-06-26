@@ -75,8 +75,10 @@ class Rectangle(Base):
         return self.width * self.height
 
     def __str__(self):
-        # Define a string representation of a Rectangle object with id, x, y, width, and height attributes
-        return f"[Rectangle]({self.id}) {self.x}/{self.y} - {self.width}/{self.height}"
+        """Define a string representation of a Rectangle obj """
+        return (f"[Rectangle]({self.id}) "
+                f"{self.x}/{self.y} - "
+                f"{self.width}/{self.height}")
 
     def display(self):
         """Returns the rectangle as a string representation"""
@@ -88,10 +90,6 @@ class Rectangle(Base):
                 print("#", end="")
             # Go to a new line after each row is printed
             print()
-
-    def __str__(self):
-        """Define a string representation of a Rectangle object with id, x, y, width, and height attributes"""
-        return f"[Rectangle] ({self.id}) {self.x}/{self.y} - {self.width}/{self.height}"
 
     def update(self, *args):
         """Update the rectangle """
@@ -105,4 +103,3 @@ class Rectangle(Base):
             self.x = args[3]
         if len(args) >= 5:
             self.y = args[4]
-        print(end= '')
