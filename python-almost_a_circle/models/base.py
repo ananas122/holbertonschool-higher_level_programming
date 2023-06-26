@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """ Defines the base model class. """
-from models.base import Base
+
 
 class Base:
     """Base class"""
