@@ -1,16 +1,23 @@
 #!/usr/bin/python3
-""" Defines the base model class. """
-from models.base import Base
+"""
+module base
+"""
+
 
 class Base:
     """
-    Base class
-
+    base class
+    will be use for all class
     """
+
     __nb_objects = 0
 
     def __init__(self, id=None):
-        "initialize a new object"
+        """constructor
+
+        Args:
+            id (int, None): Defaults to None.
+        """
         if id is not None:
             self.id = id
         else:
