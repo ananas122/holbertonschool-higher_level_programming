@@ -73,13 +73,6 @@ class Rectangle(Base):
     def area(self):
         """Returns the calculated area of Rectangle instance"""
         return self.width * self.height
-
-    def __str__(self):
-        """Define a string representation of a Rectangle obj """
-        return (f"[Rectangle]({self.id}) "
-                f"{self.x}/{self.y} - "
-                f"{self.width}/{self.height}")
-
     def display(self):
         """Returns the rectangle as a string representation"""
         # Loop through each row
@@ -90,6 +83,19 @@ class Rectangle(Base):
                 print("#", end="")
             # Go to a new line after each row is printed
             print()
+
+    def __str__(self):
+        """Define a string representation of a Rectangle obj """
+        return (f"[Rectangle]({self.id}) "
+                f"{self.x}/{self.y} - "
+                f"{self.width}/{self.height}")
+
+    def display(self):
+        for _ in range(self.y):
+            print()
+        for _ in range(self.height):
+            print(" " * self.x + "#" * self.width)
+
 
     def update(self, *args):
         """Update the rectangle """
@@ -103,3 +109,4 @@ class Rectangle(Base):
             self.x = args[3]
         if len(args) >= 5:
             self.y = args[4]
+
