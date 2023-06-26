@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-
+""" module Rectangle based class Base """
 from models.base import Base
 
 
