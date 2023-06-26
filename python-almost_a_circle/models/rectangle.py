@@ -73,16 +73,7 @@ class Rectangle(Base):
     def area(self):
         """Returns the calculated area of Rectangle instance"""
         return self.width * self.height
-    def display(self):
-        """Returns the rectangle as a string representation"""
-        # Loop through each row
-        for row in range(self.height):
-            # Loop through each column
-            for colomn in range(self.width):
-                # Print the "#" character without going to a new line
-                print("#", end="")
-            # Go to a new line after each row is printed
-            print()
+
 
     def __str__(self):
         """Define a string representation of a Rectangle obj """
