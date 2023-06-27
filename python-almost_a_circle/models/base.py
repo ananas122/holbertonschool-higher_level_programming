@@ -2,6 +2,7 @@
 """ A module class Base """
 import json
 
+
 class Base:
     """ A simple class """
 
