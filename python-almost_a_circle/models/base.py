@@ -25,9 +25,21 @@ class Base:
 
     @classmethod
     def save_to_file(cls, list_objs):
-        filename = cls.__name__ + ".json"
+        # Vérifier si la liste d'objets est vide
+        if not list_objs:
+            return None
+
+        # Créer le nom de fichier en utilisant le nom de la classe
+        filename = f"{cls.__name__}.json"
+
+        # Convertir les objets en dictionnaires en utilisant la méthode to_dictionary()
+        dictionaries = [obj.to_dictionary() for obj in list_objs]
+
+        # Ouvrir le fichier en mode écriture
         with open(filename, mode="w", encoding="utf-8") as file:
-            json.dump([obj.to_dictionary() for obj in list_objs], file)
+            # Utiliser la fonction json.dump pour écrire les dictionnaires dans le fichier
+            json.dump(dictionaries, file)
+
 
     def from_json_string(json_string):
         """Create a new instance of the class from a json string """
