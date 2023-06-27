@@ -32,14 +32,13 @@ class Base:
         # Créer le nom de fichier en utilisant le nom de la classe
         filename = f"{cls.__name__}.json"
 
-        # Convertir les objets en dictionnaires en utilisant la méthode to_dictionary()
+        # Convertir les obj en dict en utilisant la méthode to_dictionary()
         dictionaries = [obj.to_dictionary() for obj in list_objs]
 
         # Ouvrir le fichier en mode écriture
         with open(filename, mode="w", encoding="utf-8") as file:
-            # Utiliser la fonction json.dump pour écrire les dictionnaires dans le fichier
+            # Utiliser la fonction json.dump pour écrire les dict dans le f
             json.dump(dictionaries, file)
-
 
     def from_json_string(json_string):
         """Create a new instance of the class from a json string """
