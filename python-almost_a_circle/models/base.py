@@ -18,6 +18,6 @@ class Base:
 
     def to_json_string(list_dictionaries):
         """ Converts a list of dictionaries """
-        if list_dictionaries is None or lis_dictionnary is []:
+        if list_dictionaries is None or list_dictionaries is []:
             return "[]"
         return json.dumps(list_dictionaries)
