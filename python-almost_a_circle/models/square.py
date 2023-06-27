@@ -24,7 +24,7 @@ class Square(Rectangle):
         """ Set the size of the Square """
         self.width = value
         self.height = value
-    
+
     def update(self, *args, **kwargs):
         """ Update rectangle attributes. """
         # Arg positionnel
