@@ -42,6 +42,7 @@ class Base:
 
     def from_json_string(json_string):
         """Create a new instance of the class from a json string """
-        if not json_string:
-            return "[]"
-        return json.loads(json_string)
+        if json_string is None or json_string is []:
+            return []
+        else:
+            return json.loads(json_string)
