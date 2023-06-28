@@ -1,92 +1,66 @@
-#!/usr/bin/python3
-
-from unittest.mock import patch
-import json
 import unittest
-from models.base import Base
 from models.rectangle import Rectangle
-from models.square import Square
+import io
+from unittest.mock import patch
 
-class TestSquare(unittest.TestCase):
+
+class TestRectangle(unittest.TestCase):
+
+    def test_width_type(self):
+        self.assertRaises(TypeError, Rectangle, "2", 5)
+
+    def test_width_value(self):
+        self.assertRaises(ValueError, Rectangle, 0, 5)
+
+    def test_height_type(self):
+        self.assertRaises(TypeError, Rectangle, 2, "5")
+
+    def test_height_value(self):
+        self.assertRaises(ValueError, Rectangle, 2, -5)
+
+    def test_x_type(self):
+        self.assertRaises(TypeError, Rectangle, 2, 5, "3")
+
+    def test_x_value(self):
+        self.assertRaises(ValueError, Rectangle, 2, 5, -3)
+
+    def test_y_type(self):
+        self.assertRaises(TypeError, Rectangle, 2, 5, 3, "4")
+
+    def test_y_value(self):
+        self.assertRaises(ValueError, Rectangle, 2, 5, 3, -4)
+
+    def test_area(self):
+        rect = Rectangle(2, 5)
+        self.assertEqual(rect.area(), 10)
 
     def setUp(self):
-        self.square = Square(5, 2, 3, 1)
-
-    def test_str(self):
-        self.assertEqual(
-            str(self.square),
-            "[Square] (1) 2/3 - 5"
-        )
-
-    def test_size_getter(self):
-        self.assertEqual(
-            self.square.size,
-            5
-        )
-
-    def test_size_setter(self):
-        self.square.size = 10
-        self.assertEqual(
-            self.square.size,
-            10
-        )
-        self.assertEqual(
-            self.square.width,
-            10
-        )
-        self.assertEqual(
-            self.square.height,
-            10
-        )
-
-    def test_update_args(self):
-        self.square.update(2, 7, 4, 5)
-        self.assertEqual(
-            self.square.id,
-            2
-        )
-        self.assertEqual(
-            self.square.size,
-            7
-        )
-        self.assertEqual(
-            self.square.x,
-            4
-        )
-        self.assertEqual(
-            self.square.y,
-            5
-        )
-
-    def test_update_kwargs(self):
-        self.square.update(id=3, size=9, x=6, y=7)
-        self.assertEqual(
-            self.square.id,
-            3
-        )
-        self.assertEqual(
-            self.square.size,
-            9
-        )
-        self.assertEqual(
-            self.square.x,
-            6
-        )
-        self.assertEqual(
-            self.square.y,
-            7
-        )
+        self.rect = Rectangle(4, 4)
+        self.output_stream = io.StringIO()
 
     def test_to_dictionary(self):
-        self.assertEqual(
-            self.square.to_dictionary(),
-            {
-                "id": 1,
-                "size": 5,
-                "x": 2,
-                "y": 3
-            }
-        )
+        rect = Rectangle(2, 5, 0, 0, 1)
+        rect_dict = rect.to_dictionary()
+        expected_dict = {'id': 1, 'width': 2, 'height': 5, 'x': 0, 'y': 0}
+        self.assertEqual(rect_dict, expected_dict)
+
+    def test_update_args(self):
+        rect = Rectangle(2, 5)
+        rect.update(1, 3, 4, 2, 1)
+        self.assertEqual(rect.width, 3)
+        self.assertEqual(rect.height, 4)
+        self.assertEqual(rect.x, 2)
+        self.assertEqual(rect.y, 1)
+
+    def test_update_kwargs(self):
+        rect = Rectangle(2, 5)
+        rect.update(width=3, height=4, x=2, y=1)
+        self.assertEqual(rect.width, 3)
+        self.assertEqual(rect.height, 4)
+        self.assertEqual(rect.x, 2)
+        self.assertEqual(rect.y, 1)
+
+
 
 if __name__ == '__main__':
     unittest.main()
