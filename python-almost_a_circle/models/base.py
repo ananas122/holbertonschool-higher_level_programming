@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """ A module class Base """
 import json
+import os
 
 
 class Base:
@@ -66,3 +67,30 @@ class Base:
 
         # Retourne l'instance avec tous les attributs déjà définis
         return dummy
+
+    @classmethod
+    def load_from_file(cls):
+        filename = f"{cls.__name__}.json"
+
+        if os.path.exists(filename):
+            with open(filename, 'r') as file:
+                json_data = file.read()
+                data = Base.from_json_string(json_data)
+                return [cls.create(**item) for item in data]
+        return []
+
+    @classmethod
+    def load_from_file(cls):
+        """Returns a list of instances """
+        filename = f"{cls.__name__}.json"
+        if os.path.exists(filename):
+            # Ouvrir le fichier en mode lecture
+            with open(filename, 'r') as file:
+                # Lire les données JSON du fichier
+                json_data = file.read()
+                # Convertir les données JSON en objet Base
+                data = Base.from_json_string(json_data)
+                # Créer une lst d'objets de la classe actu
+                return [cls.create(**item) for item in data]
+        # Si le fichier n'existe pas, retourner une liste vide
+        return []
