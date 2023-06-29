@@ -105,6 +105,7 @@ class TestRectangle(unittest.TestCase):
             Rectangle(5, 1, 45.90)
             raise TypeError()
 
+
 if __name__ == '__main__':
     unittest.main()
 
