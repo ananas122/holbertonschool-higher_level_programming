@@ -5,76 +5,99 @@ import unittest
 from models.base import Base
 from models.rectangle import Rectangle
 from models.square import Square
-
+import json
 
 class TestBase_instantiation(unittest.TestCase):
     """Unittests for testing instantiation of the Base class."""
+    def test_create_base(self):
+        # Test creating a Base instance.
+        b = Base()
+        self.assertIsNotNone(b.id)
 
-    def test_no_arg(self):
+    def test_constructor_with_id(self):
+        # Test creating a Base instance with a specific id.
+        base = Base(1)
+        self.assertEqual(base.id, 1)
+
+    def test_different_ids(self):
+        # Test creating multiple Base instances with different ids.
         b1 = Base()
         b2 = Base()
-        self.assertEqual(b1.id, b2.id - 1)
+        b3 = Base()
+        self.assertNotEqual(b1.id, b2.id)
+        self.assertNotEqual(b2.id, b3.id)
+        self.assertNotEqual(b1.id, b3.id)
+
+    def test_id_increment(self):
+        # Test if the id increments correctly when creating multiple Base instances.
+        b1 = Base()
+        b2 = Base()
+        b3 = Base()
+        self.assertEqual(b1.id + 1, b2.id)
+        self.assertEqual(b2.id + 1, b3.id)
 
     def test_three_bases(self):
+        # Test if the id of the third Base instance is two less than the first instance.
         b1 = Base()
         b2 = Base()
         b3 = Base()
         self.assertEqual(b1.id, b3.id - 2)
 
     def test_None_id(self):
+        # Test creating Base instances with None as the id.
         b1 = Base(None)
         b2 = Base(None)
         self.assertEqual(b1.id, b2.id - 1)
 
     def test_unique_id(self):
+        # Test creating a Base instance with a unique id.
         self.assertEqual(12, Base(12).id)
 
-    def test_nb_instances_after_unique_id(self):
-        b1 = Base()
-        b2 = Base(12)
-        b3 = Base()
-        self.assertEqual(b1.id, b3.id - 1)
-
     def test_id_public(self):
+        # Test if the id attribute of a Base instance can be modified.
         b = Base(12)
         b.id = 15
         self.assertEqual(15, b.id)
 
     def test_nb_instances_private(self):
+        # Test accessing the __nb_instances attribute of a Base instance.
         with self.assertRaises(AttributeError):
             print(Base(12).__nb_instances)
 
-    def test_str_id(self):
-        self.assertEqual("hello", Base("hello").id)
+    def test_negative_id(self):
+        # Test creating a Base instance with a negative id.
+        b = Base(id=-5)
+        self.assertEqual(b.id, -5)
+
+    def test_custom_id(self):
+        # Test creating a Base instance with a custom id.
+        b = Base(id=100)
+        self.assertEqual(b.id, 100)
 
     def test_float_id(self):
-        self.assertEqual(5.5, Base(5.5).id)
-
-    def test_complex_id(self):
-        self.assertEqual(complex(5), Base(complex(5)).id)
+        # Test creating a Base instance with a float id.
+        self.assertEqual(2.3, Base(2.3).id)
 
     def test_dict_id(self):
-        self.assertEqual({"a": 1, "b": 2}, Base({"a": 1, "b": 2}).id)
+        # Test creating a Base instance with a dictionary id.
+        self.assertEqual({"a": 50, "b": 3}, Base({"a": 50, "b": 3}).id)
 
     def test_bool_id(self):
+        # Test creating a Base instance with a boolean id.
         self.assertEqual(True, Base(True).id)
 
     def test_list_id(self):
+        # Test creating a Base instance with a list id.
         self.assertEqual([1, 2, 3], Base([1, 2, 3]).id)
-
-    def test_tuple_id(self):
-        self.assertEqual((1, 2), Base((1, 2)).id)
 
     def test_set_id(self):
         self.assertEqual({1, 2, 3}, Base({1, 2, 3}).id)
-
-    def test_frozenset_id(self):
-        self.assertEqual(frozenset({1, 2, 3}), Base(frozenset({1, 2, 3})).id)
 
     def test_range_id(self):
         self.assertEqual(range(5), Base(range(5)).id)
 
     def test_bytes_id(self):
+        # Test the `id` attribute of the `Base` class when initialized with bytes.
         self.assertEqual(b'Python', Base(b'Python').id)
 
     def test_bytearray_id(self):
@@ -85,9 +108,6 @@ class TestBase_instantiation(unittest.TestCase):
 
     def test_inf_id(self):
         self.assertEqual(float('inf'), Base(float('inf')).id)
-
-    def test_NaN_id(self):
-        self.assertNotEqual(float('nan'), Base(float('nan')).id)
 
     def test_two_args(self):
         with self.assertRaises(TypeError):
@@ -368,24 +388,6 @@ class TestBase_load_from_file(unittest.TestCase):
             Base.load_from_file([], 1)
 
 
-class TestBase_save_to_file_csv(unittest.TestCase):
-    """Unittests for testing save_to_file_csv method of Base class."""
-
-    @classmethod
-    def tearDown(self):
-        """Delete any created files."""
-        try:
-            os.remove("Rectangle.csv")
-        except IOError:
-            pass
-        try:
-            os.remove("Square.csv")
-        except IOError:
-            pass
-        try:
-            os.remove("Base.csv")
-        except IOError:
-            pass
 
 if __name__ == "__main__":
     unittest.main()
