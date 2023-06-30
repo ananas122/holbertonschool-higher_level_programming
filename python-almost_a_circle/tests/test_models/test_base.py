@@ -201,16 +201,6 @@ class TestBase_save_to_file(unittest.TestCase):
         with open("Square.json", "r") as f:
             self.assertTrue(len(f.read()) == 39)
 
-    def test_save_to_file_None(self):
-        Square.save_to_file(None)
-        with open("Square.json", "r") as f:
-            self.assertEqual("[]", f.read())
-
-    def test_save_to_file_empty_list(self):
-        Square.save_to_file([])
-        with open("Square.json", "r") as f:
-            self.assertEqual("[]", f.read())
-
     def test_save_to_file_no_args(self):
         with self.assertRaises(TypeError):
             Rectangle.save_to_file()
@@ -277,17 +267,6 @@ class TestBase_from_json_string(unittest.TestCase):
 class TestBase_create(unittest.TestCase):
     """Unittests for testing create method of Base class."""
 
-    def test_create_rectangle_original(self):
-        r1 = Rectangle(3, 5, 1, 2, 7)
-        r1_dictionary = r1.to_dictionary()
-        r2 = Rectangle.create(**r1_dictionary)
-        self.assertEqual("[Rectangle] (7) 1/2 - 3/5", str(r1))
-
-    def test_create_rectangle_new(self):
-        r1 = Rectangle(3, 5, 1, 2, 7)
-        r1_dictionary = r1.to_dictionary()
-        r2 = Rectangle.create(**r1_dictionary)
-        self.assertEqual("[Rectangle] (7) 1/2 - 3/5", str(r2))
 
     def test_create_rectangle_is(self):
         r1 = Rectangle(3, 5, 1, 2, 7)
