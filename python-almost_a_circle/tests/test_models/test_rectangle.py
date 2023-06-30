@@ -660,7 +660,7 @@ class TestRectangle_update_args(unittest.TestCase):
 
 
 class TestRectangle_to_dictionary(unittest.TestCase):
-    """Unittests for testing to_dictionary method of the Rectangle class."""
+    """Unittests for testing to_dictionary method of the Rectangle class. """
 
     def test_to_dictionary_output(self):
         r = Rectangle(10, 2, 1, 9, 5)
