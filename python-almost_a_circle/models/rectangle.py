@@ -6,6 +6,7 @@ from models.base import Base
 class Rectangle(Base):
     """Class a rectangle."""
 
+    
     def __init__(self, width, height, x=0, y=0, id=None):
         """Initializes a Rectangle instance. """
         self.width = width
@@ -13,7 +14,6 @@ class Rectangle(Base):
         self.x = x
         self.y = y
         super().__init__(id)
-
     @property
     def width(self):
         """Retrieves the width attribute."""

@@ -329,17 +329,6 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(rectangle.x, 5)
         self.assertEqual(rectangle.y, 6)
 
-    '''def test_update_args_and_kwargs(self):
-        """ test update method:
-        assigns an argument to each attribute using *args and **kwargs
-        """
-        rectangle = Rectangle(1, 1, 1, 1, 1)
-        rectangle.update(id=7, width=8, height=9, x=10, y=11)
-        self.assertEqual(rectangle.id, 2)
-        self.assertEqual(rectangle.width, 3)
-        self.assertEqual(rectangle.height, 4)
-        self.assertEqual(rectangle.x, 5)
-        self.assertEqual(rectangle.y, 6)'''
 
     def test_create_with_attributes(self):
         """ Test if create method sets attributes correctly """
@@ -387,6 +376,36 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(rectangles[0].x, expected_rectangles[0].x)
         self.assertEqual(rectangles[0].y, expected_rectangles[0].y)
 
+    def test_create_rectangle(self):
+        r = Rectangle(10, 15)
+        self.assertEqual(r.width, 10)
+        self.assertEqual(r.height, 15)
+        
+    def test_create_rectangle_with_id(self):
+        r = Rectangle(10, 15, id=1)
+        self.assertEqual(r.id, 1)
+        
+    def test_create_rectangle_with_zero_values(self):
+        with self.assertRaises(ValueError):
+            r = Rectangle(0, 15)
+        with self.assertRaises(ValueError):
+            r = Rectangle(10, 0)
+    
+    def test_create_rectangle_with_id(self):
+        r = Rectangle(10, 15, id=1)
+        self.assertEqual(r.id, 1)
+
+    def test_create_rectangle_with_non_integer_values(self):
+        with self.assertRaises(TypeError):
+            r = Rectangle(10.5, 15)
+        with self.assertRaises(TypeError):
+            r = Rectangle(10, 15.5)
+    
+    def test_create_rectangle_with_negative_values(self):
+        with self.assertRaises(ValueError):
+            r = Rectangle(-10, 15)
+        with self.assertRaises(ValueError):
+            r = Rectangle(10, -15)
 
 if __name__ == '__main__':
     unittest.main()
