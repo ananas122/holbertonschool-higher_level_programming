@@ -267,7 +267,6 @@ class TestBase_from_json_string(unittest.TestCase):
 class TestBase_create(unittest.TestCase):
     """Unittests for testing create method of Base class."""
 
-
     def test_create_rectangle_is(self):
         r1 = Rectangle(3, 5, 1, 2, 7)
         r1_dictionary = r1.to_dictionary()

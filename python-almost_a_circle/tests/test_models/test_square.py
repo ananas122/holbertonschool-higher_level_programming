@@ -167,7 +167,6 @@ class TestSquare_x(unittest.TestCase):
         with self.assertRaisesRegex(TypeError, "x must be an integer"):
             Square(1, {"a": 1, "b": 2}, 2)
 
-
     def test_list_x(self):
         with self.assertRaisesRegex(TypeError, "x must be an integer"):
             Square(1, [1, 2, 3])
@@ -541,7 +540,6 @@ class TestSquare_update_kwargs(unittest.TestCase):
         s.update(id=89, size=8)
         self.assertEqual(8, s.width)
 
-
     def test_update_kwargs_None_id(self):
         s = Square(10, 10, 10, 10)
         s.update(id=None)
@@ -624,6 +622,7 @@ class TestSquare_to_dictionary(unittest.TestCase):
         s = Square(10, 10, 10, 10)
         with self.assertRaises(TypeError):
             s.to_dictionary(1)
+
 
 if __name__ == "__main__":
     unittest.main()

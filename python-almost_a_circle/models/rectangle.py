@@ -6,7 +6,6 @@ from models.base import Base
 class Rectangle(Base):
     """Class a rectangle."""
 
-    
     def __init__(self, width, height, x=0, y=0, id=None):
         """Initializes a Rectangle instance. """
         self.width = width
@@ -14,6 +13,7 @@ class Rectangle(Base):
         self.x = x
         self.y = y
         super().__init__(id)
+
     @property
     def width(self):
         """Retrieves the width attribute."""
@@ -79,7 +79,6 @@ class Rectangle(Base):
         string += str(self.__x) + "/" + str(self.y) + " - "
         string += str(self.__width) + "/" + str(self.__height)
         return string
-
 
     def display(self):
         """ Print the Rectangle using the `#` character  """

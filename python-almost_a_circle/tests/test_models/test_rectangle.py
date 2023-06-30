@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """ This module is a unittest for the Rectangle class """
 
+
 import unittest
 import os
 import io
@@ -329,7 +330,6 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(rectangle.x, 5)
         self.assertEqual(rectangle.y, 6)
 
-
     def test_create_with_attributes(self):
         """ Test if create method sets attributes correctly """
         attributes = {'id': 1, 'width': 2, 'height': 3, 'x': 4, 'y': 5}
@@ -400,12 +400,13 @@ class TestRectangle(unittest.TestCase):
             r = Rectangle(10.5, 15)
         with self.assertRaises(TypeError):
             r = Rectangle(10, 15.5)
-    
+
     def test_create_rectangle_with_negative_values(self):
         with self.assertRaises(ValueError):
             r = Rectangle(-10, 15)
         with self.assertRaises(ValueError):
             r = Rectangle(10, -15)
+
 
 if __name__ == '__main__':
     unittest.main()
