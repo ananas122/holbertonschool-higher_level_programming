@@ -1,58 +1,69 @@
 #!/usr/bin/python3
-""" module Square that inherits from Rectangle:"""
-from models.base import Base
+"""
+This file contains the definition of the Square class.
+"""
 from models.rectangle import Rectangle
 
 
-class Square(Rectangle):
-    """ Class a Square that inherites by Rectangle. """
-
+class Square (Rectangle):
+    '''
+        Constructor of the Square class.
+    '''
     def __init__(self, size, x=0, y=0, id=None):
-        # Call the superclass constructor to initialize the obj
-        super().__init__(size, size, x, y, id)
+        """
+           class constructor
 
-    def __str__(self):
-        """Define a string representation of a Rectangle obj """
-        return f"[Square] ({self.id}) {self.x}/{self.y} - {self.width}"
+        Args:
+            size (int): The size of the square.
+            x (int, optional): The x position of the square.
+            y (int, optional): The y position of the square.
+            id (int, optional): The identifier to assign to the instance.
+
+        """
+        super().__init__(size, size, x, y, id)
 
     @property
     def size(self):
-        """ Get the size of the Square """
         return self.width
 
     @size.setter
     def size(self, value):
-        """ Set the size of the Square """
         self.width = value
         self.height = value
 
-    def update(self, *args, **kwargs):
-        """ Update rectangle attributes. """
-        # Arg positionnel
-        if len(args) > 0:
-            self.id = args[0]
-        if len(args) > 1:
-            self.size = args[1]
-        if len(args) > 2:
-            self.x = args[2]
-        if len(args) > 3:
-            self.y = args[3]
+    def __str__(self):
+        '''Returns a string representation of the Square.'''
+        _id = self.id
+        x = self.x
+        y = self.y
+        _size = self.width
 
-        # Arg keyword
-        if 'id' in kwargs:
-            self.id = kwargs['id']
-        if 'size' in kwargs:
-            self.width = kwargs['size']
-        if 'x' in kwargs:
-            self.x = kwargs['x']
-        if 'y' in kwargs:
-            self.y = kwargs['y']
+        return "[{}] ({}) {}/{} - {}".format(type(self).__name__,
+                                             _id, x, y, _size)
+
+    def update(self, *args, **kwargs):
+        """Update attributes with variable orderly arguments"""
+
+        if (len(args) > 0):
+
+            num_args = min(len(args), 4)
+
+            self.id = args[0]
+            self.size = args[1] if num_args > 1 else self.size
+            self.x = args[2] if num_args > 2 else self.x
+            self.y = args[3] if num_args > 3 else self.y
+
+        if kwargs is not None:
+            for key, val in kwargs.items():
+                self.__setattr__(key, val)
 
     def to_dictionary(self):
-        """ Retrun dictonary """
+        """
+         Returns a dictionary representation of the Square object.
+        """
         return {
-            "id": self.id,
-            "size": self.size,
-            "x": self.x,
-            "y": self.y
-        }
+                "id": self.id,
+                "x": self.x,
+                "size": self.size,
+                "y": self.y,
+                     }
