@@ -107,10 +107,11 @@ class TestRectangle(unittest.TestCase):
     def test_value(self):
         self.assertRaisesRegex(
             ValueError, "width must be > 0", Rectangle, -1, 2)
-    
+
     def test_type(self):
         self.assertRaisesRegex(
             TypeError, "width must be an integer", Rectangle, "1", 2)
+
     def test_to_dictionary(self):
         # Testing the conversion of object attributes to dictionary
         r = Rectangle(10, 5, 2, 4, 1)  # Create an instance of Rectangle
@@ -138,6 +139,15 @@ class TestRectangle(unittest.TestCase):
         with self.assertRaises(ValueError):
             rect = Rectangle(0, 5)
             rect.area()
+        # test area with negative width
+            with self.assertRaises(ValueError):
+                self.rectangle.width = -1
+                self.rectangle.area()
+         # test area with negative height
+            with self.assertRaises(ValueError):
+                self.rectangle.height = -1
+                self.rectangle.area()
+
     def setUp(self):
         self.rectangle = Rectangle(2, 3)
 
