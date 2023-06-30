@@ -104,8 +104,63 @@ class TestRectangle(unittest.TestCase):
         with self.assertRaises(TypeError):
             Rectangle(5, 1, 45.90)
             raise TypeError()
+    
+    def test_to_dictionary(self):
+        # Testing the conversion of object attributes to dictionary
+        r = Rectangle(10, 5, 2, 4, 1)  # Create an instance of Rectangle
+        expected_result = {
+            "id": r.id,
+            "width": r.width,
+            "height": r.height,
+            "x": r.x,
+            "y": r.y
+        }
+        self.assertEqual(r.to_dictionary(), expected_result)
+
+
+    def test_area_calculated_correctly(self):
+        # Test case: area of rectangle with width 5 and height 10
+        rect = Rectangle(5, 10)
+        self.assertEqual(rect.area(), 50)
+
+        # Test case: area of rectangle with width 3 and height 7
+        rect = Rectangle(3, 7)
+        self.assertEqual(rect.area(), 21)
+
+    def test_area_with_zero_width(self):
+        # Test case: area of rectangle with width 0 and height 5
+        with self.assertRaises(ValueError):
+            rect = Rectangle(0, 5)
+            rect.area()
+    def setUp(self):
+        self.rectangle = Rectangle(2, 3)
+
+    def test_update_with_args(self):
+        self.rectangle.update(1, 2, 3, 4, 5)
+        self.assertEqual(self.rectangle.id, 1)
+        self.assertEqual(self.rectangle.width, 2)
+        self.assertEqual(self.rectangle.height, 3)
+        self.assertEqual(self.rectangle.x, 4)
+        self.assertEqual(self.rectangle.y, 5)
+
+    def test_update_with_kwargs(self):
+        self.rectangle.update(id=1, width=2, height=3, x=4, y=5)
+        self.assertEqual(self.rectangle.id, 1)
+        self.assertEqual(self.rectangle.width, 2)
+        self.assertEqual(self.rectangle.height, 3)
+        self.assertEqual(self.rectangle.x, 4)
+        self.assertEqual(self.rectangle.y, 5)
+
+    def test_update_with_args_and_kwargs(self):
+        self.rectangle.update(1, 2, 3, x=4, y=5)
+        self.assertEqual(self.rectangle.id, 1)
+        self.assertEqual(self.rectangle.width, 2)
+        self.assertEqual(self.rectangle.height, 3)
+        self.assertEqual(self.rectangle.x, 4)
+        self.assertEqual(self.rectangle.y, 5)
 
 
 if __name__ == '__main__':
     unittest.main()
+
 
