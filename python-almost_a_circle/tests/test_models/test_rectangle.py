@@ -380,17 +380,17 @@ class TestRectangle(unittest.TestCase):
         r = Rectangle(10, 15)
         self.assertEqual(r.width, 10)
         self.assertEqual(r.height, 15)
-        
+
     def test_create_rectangle_with_id(self):
         r = Rectangle(10, 15, id=1)
         self.assertEqual(r.id, 1)
-        
+
     def test_create_rectangle_with_zero_values(self):
         with self.assertRaises(ValueError):
             r = Rectangle(0, 15)
         with self.assertRaises(ValueError):
             r = Rectangle(10, 0)
-    
+
     def test_create_rectangle_with_id(self):
         r = Rectangle(10, 15, id=1)
         self.assertEqual(r.id, 1)
