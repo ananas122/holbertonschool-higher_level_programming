@@ -17,17 +17,16 @@ if __name__ == '__main__':
     # Exécution requêtes SQL
     cur.execute(
         "SELECT cities.name \
-        FROM cities JOIN states ON cities.state_id = states.id \
-        WHERE states.name LIKE %s \
+        FROM cities \
+        JOIN states ON cities.state_id = states.id \
+        WHERE states.name = %s \
         ORDER BY cities.id", (sys.argv[4],))
 
 
     # Recuperation des résultats
     rows = cur.fetchall()
-
-    # Affichage des résultats
-    for row in rows:
-        print(row)
+    cities = set([row[0] for row in rows])
+    print(", ".join(cities))
 
     cur.close()
     db.close()
