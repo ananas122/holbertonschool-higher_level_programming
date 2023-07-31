@@ -22,7 +22,6 @@ if __name__ == '__main__':
         WHERE states.name = %s \
         ORDER BY cities.id", (sys.argv[4],))
 
-
     # Recuperation des résultats
     rows = cur.fetchall()
     cities = set([row[0] for row in rows])
