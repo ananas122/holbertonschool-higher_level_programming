@@ -1,7 +1,5 @@
 #!/usr/bin/python3
-"""Write a script that takes in an argument
-and displays all values in the states table
-of hbtn_0e_0_usa where name matches the argument.import MySQLdb"""
+""" SQL injection to delete all records of a table…"""
 import sys
 import MySQLdb
 
@@ -19,7 +17,7 @@ if __name__ == '__main__':
     # Exécution requêtes SQL
     cur.execute(
                 "SELECT * FROM states \
-                WHERE name LIKE %s \
+                WHERE name=%s \
                 ORDER BY states.id ASC", (sys.argv[4],)
                 )
 
