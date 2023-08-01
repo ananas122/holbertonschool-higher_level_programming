@@ -11,8 +11,11 @@ if __name__ == '__main__':
     passwd = sys.argv[2]
     db = sys.argv[3]
 
-    # Create the engine to connect to the database with pool_pre_ping=True
-    engine = create_engine(f'mysql+mysqldb://{user}:{passwd}@localhost:3306/{db}', pool_pre_ping=True)
+    # Create the engine to connect to the db with pool_pre_ping=True
+    engine = create_engine(
+        f'mysql+mysqldb://{user}:{passwd}@localhost:3306/{db}',
+        pool_pre_ping=True
+        )
 
     # Create a session to interact with the database
     Session = sessionmaker(bind=engine)
@@ -21,10 +24,8 @@ if __name__ == '__main__':
     session = Session()
 
     # Query all State objects and sort them by id in ascending order
-    states = session.query(State).order_by(State.id).all()
-
-    # Iterate through the states and print their information
-    for state in states:
+    # Récupère tous les objets State et les affiche
+    for state in session.query(State).order_by(State.id):
         print(f"{state.id}: {state.name}")
 
     session.close()
