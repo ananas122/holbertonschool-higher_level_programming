@@ -8,10 +8,6 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
 if __name__ == '__main__':
-    user = sys.argv[1]
-    passwd = sys.argv[2]
-    db = sys.argv[3]
-    pool_pre_ping=True
 
     # Create the engine to connect to the db
     engine = create_engine(
