@@ -1,11 +1,12 @@
 #!/usr/bin/python3
 """ lists all State objects from the database hbtn_0e_6_usa"""
 
+
 import sys
 from model_state import Base, State
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-from sqlalchemy.orm import Session
+
 
 if __name__ == '__main__':
     user = sys.argv[1]
@@ -29,6 +30,6 @@ if __name__ == '__main__':
     if state is None:
         print("Nothing")
     else:
-        print("{}: {}".format(state.id, state.name))
+        print(f"{state.id}: {state.name}")
 
     session.close()
