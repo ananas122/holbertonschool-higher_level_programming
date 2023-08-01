@@ -24,8 +24,10 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    # Requête pour supprimer tous les objets State dont le nom contient la lettre "a"
-    session.query(State).filter(State.name.like('%a%')).delete()
+    # Requête pour sup ts les objets State dont le nom contient "a"
+    for state in session.query(State):
+        if "a" in state.name:
+            session.delete(state)
 
     # Commit des changements et fermeture de la session
     session.commit()
