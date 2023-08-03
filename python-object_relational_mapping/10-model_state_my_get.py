@@ -1,37 +1,34 @@
 #!/usr/bin/python3
-""" lists all State objects from the database hbtn_0e_6_usa"""
+"""
+Prints the State object with the name passed as argument from
+the database hbtn_0e_6_usa
+"""
 
-
-import sys
+from sys import argv
 from model_state import Base, State
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
 
-if __name__ == '__main__':
-    user = sys.argv[1]
-    passwd = sys.argv[2]
-    db = sys.argv[3]
+if __name__ == "__main__":
 
-    # Create the engine to connect to the db with pool_pre_ping=True
-    engine = create_engine(
-        f'mysql+mysqldb://{user}:{passwd}@localhost:3306/{db}',
-        pool_pre_ping=True
-        )
-
-    # Create a session to interact with the db
+    user = argv[1]
+    passwd = argv[2]
+    db = argv[3]
+    engine = create_engine('mysql+mysqldb://{}:{}@localhost/{}'.
+                            format(user, passwd, db), pool_pre_ping=True)
+    Base.metadata.create_all(engine)
     Session = sessionmaker(bind=engine)
-
-    # create a Session
     session = Session()
 
-    # Search for the State object with the given name
-    state_name_to_search = sys.argv[4]
-    state = session.query(State) \
-        .filter(State.name == state_name_to_search).first()
-    if state:
-        print("{:d}".format(state.id))
+    # Query
+    state_name_searched = argv[4]
+    query = session.query(State).filter_by(name=state_name_searched).first()
+    # Conditions
+    if query:
+        print("{:d}".format(query.id))
     else:
         print("Not found")
 
+    # Close session
     session.close()
