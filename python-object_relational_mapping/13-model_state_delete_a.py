@@ -13,12 +13,9 @@ from model_state import Base, State
 if __name__ == "__main__":
 
     # make engine for database
-    user = argv[1]
-    passwd = argv[2]
-    db = argv[3]
-    engine = create_engine(
-        f'mysql+mysqldb://{user}:{passwd}@localhost/{db}',
-        pool_pre_ping=True)
+    engine = create_engine('mysql+mysqldb://{}:{}@localhost:3306/{}'.
+                            format(sys.argv[1], sys.argv[2], sys.argv[3]),
+                            pool_pre_ping=True)
 
     # Créer une session pour interagir avec la base de données
     Session = sessionmaker(bind=engine)
