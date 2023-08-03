@@ -22,6 +22,6 @@ if __name__ == '__main__':
 
     # create a Session
     with Session() as session:
-    # Query all State objects and sort them by id in ascending order
+        # Query all State objects and sort them by id in ascending order
         for state in session.query(State).order_by(State.id):
             print(f"{state.id}: {state.name}")
