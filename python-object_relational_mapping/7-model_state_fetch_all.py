@@ -21,10 +21,7 @@ if __name__ == '__main__':
     Session = sessionmaker(bind=engine)
 
     # create a Session
-    session = Session()
-
+    with Session() as session:
     # Query all State objects and sort them by id in ascending order
-    for state in session.query(State).order_by(State.id):
-        print(f"{state.id}: {state.name}")
-
-    session.close()
+        for state in session.query(State).order_by(State.id):
+            print(f"{state.id}: {state.name}")
