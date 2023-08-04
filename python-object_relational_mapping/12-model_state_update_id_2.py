@@ -11,9 +11,10 @@ from sqlalchemy.orm import sessionmaker
 from sqlalchemy import update
 
 if __name__ == "__main__":
-    engine = create_engine('mysql+mysqldb://{}:{}@localhost/{}'.
-                            format(sys.argv[1], sys.argv[2], sys.argv[3]),
-                            pool_pre_ping=True)
+    # Create the engine to connect to the db with pool_pre_ping=True
+    engine = create_engine(
+        'mysql+mysqldb://{}:{}@localhost:3306/{}'.
+        format(sys.argv[1], sys.argv[2], sys.argv[3]), pool_pre_ping=True)
 
     # Initialize engine
     Base.metadata.create_all(engine)
