@@ -5,7 +5,7 @@ const apiUrl = 'https://swapi-api.hbtn.io/api/films/?format=json';
 fetch(apiUrl)
   .then(response => response.json())
   .then(data => {
-    // Extract and list the movie titles
+    // Extract and list the movie title
     const movies = data.results;
     movies.forEach(movie => {
       // Get the title of the current movie
