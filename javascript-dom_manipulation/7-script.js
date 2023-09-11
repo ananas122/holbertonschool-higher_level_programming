@@ -12,7 +12,7 @@ fetch(apiUrl)
       const movieTitle = movie.title;
       // Create a new list item element.
       const listItem = document.createElement('li');
-      // Set the text content of the list item to the movie title
+      // Set the text content of the list item to the movie title.
       listItem.textContent = movieTitle;
       // Append the list item to the movie list element.
       movieListElement.appendChild(listItem);
