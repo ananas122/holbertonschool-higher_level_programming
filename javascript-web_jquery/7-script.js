@@ -1,17 +1,9 @@
 /* global $ */
 
-$(document).ready(function () {
-  // Sélectionne l'élément avec l'ID 'character'
-  const characterElement = $('#character');
-
-  const apiUrl = 'https://swapi-api.hbtn.io/api/people/5/?format=json';
-
-  // Effectue une requête AJAX GET
-  $.get(apiUrl, function (data) {
-    // Affiche le nom du personnage dans la balise <p> qui a pour ID "name"
-    characterElement.text(data.name);
-    // Gère les erreurs de la requête AJAX
-  }).fail(function (error) {
-    console.error(error);
-  });
+// Make an AJAX GET request to the API URL
+$.get('https://swapi-api.hbtn.io/api/people/5/?format=json', function (data) {
+  // Extract the character name from the response JSON
+  const characterName = data.name;
+  // Display the character name in the HTML <div id="character">
+  $('#character').text(characterName);
 });
