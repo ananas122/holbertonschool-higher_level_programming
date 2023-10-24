@@ -8,7 +8,7 @@ if __name__ == "__main__":
     elif arguments == 1:
         print("1 argument:")
     else:
-        print("{} arguments:".format(arguments))
+        print(f"{arguments} arguments:")
     for count in range(arguments):
         # Afficher chaque argument avec son numéro
-        print("{}: {}".format(count + 1, sys.argv[count + 1]))
+        print(f"{count + 1}: {sys.argv[count + 1]}")

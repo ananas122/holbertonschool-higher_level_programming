@@ -93,9 +93,9 @@ class Rectangle(Base):
         y = self.y
 
         print("\n" * y, end='')
-        for i in range(row):
+        for _ in range(row):
             print(" " * x, end='')
-            for j in range(col):
+            for _ in range(col):
                 print("#", end='')
             print()
 
@@ -107,12 +107,11 @@ class Rectangle(Base):
         w = self.width
         h = self.height
 
-        return "[{}] ({}) {}/{} - {}/{}".format(type(self).__name__,
-                                                _id, x, y, w, h)
+        return f"[{type(self).__name__}] ({_id}) {x}/{y} - {w}/{h}"
 
     def update(self, *args, **kwargs):
         """Update attributes with variable orderly arguments"""
-        if args is not None and len(args) > 0:
+        if args is not None and args:
 
             num_args = min(len(args), 5)
 

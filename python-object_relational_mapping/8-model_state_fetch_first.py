@@ -4,6 +4,7 @@ return all state objects from database
 """
 
 
+
 from sys import argv
 from model_state import Base, State
 from sqlalchemy import create_engine
@@ -22,9 +23,7 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    # query python
-    firstInstance = session.query(State).order_by(State.id).first()
-    if firstInstance:
+    if firstInstance := session.query(State).order_by(State.id).first():
         print("{:d}: {:s}".format(firstInstance.id, firstInstance.name))
     else:
         print("Nothing")
