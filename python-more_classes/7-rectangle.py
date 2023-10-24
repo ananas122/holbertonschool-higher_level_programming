@@ -62,7 +62,7 @@ class Rectangle:
             return ""
         row = str(self.print_symbol) * self.width
         rect = row  # mise à jour
-        for i in range(self.height - 1):
+        for _ in range(self.height - 1):
             rect += "\n" + row
         return rect
 

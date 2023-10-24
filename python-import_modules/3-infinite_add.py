@@ -4,12 +4,6 @@ if __name__ == "__main__":
 # Vérifier le nombre d'arguments stockés dans la variable num_args
     num_args = len(argv)
 
-    resultat = 0
-
-# Parcourir les arguments à partir de l'index 1
-    for i in range(1, num_args):
-        # Vérifier si l'argument est un nombre, conversion
-        resultat += int(argv[i])
-
+    resultat = sum(int(argv[i]) for i in range(1, num_args))
 # Afficher le résultat
-    print("{}".format(resultat))
+    print(f"{resultat}")

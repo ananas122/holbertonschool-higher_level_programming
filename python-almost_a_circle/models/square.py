@@ -38,13 +38,12 @@ class Square (Rectangle):
         y = self.y
         _size = self.width
 
-        return "[{}] ({}) {}/{} - {}".format(type(self).__name__,
-                                             _id, x, y, _size)
+        return f"[{type(self).__name__}] ({_id}) {x}/{y} - {_size}"
 
     def update(self, *args, **kwargs):
         """Update attributes with variable orderly arguments"""
 
-        if (len(args) > 0):
+        if args:
 
             num_args = min(len(args), 4)
 

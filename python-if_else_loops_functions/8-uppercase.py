@@ -12,5 +12,5 @@ def uppercase(str):
 # Convertit la valeur ASCII en chr
         alpha = chr(alpha)
 # imprime le chr
-        print("{}".format(alpha), end='')
+        print(f"{alpha}", end='')
     print("")

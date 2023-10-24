@@ -52,7 +52,7 @@ class Base:
         Args:
             list_objs (list): instance de Base
         """
-        filename = cls.__name__ + ".json"
+        filename = f"{cls.__name__}.json"
         json_list = []
         if list_objs is not None:
             json_list = [obj.to_dictionary() for obj in list_objs]
@@ -88,12 +88,11 @@ class Base:
         Returns:
             _type_: _description_
         """
-        filename = cls.__name__ + ".json"
+        filename = f"{cls.__name__}.json"
         try:
             with open(filename, 'r') as file:
                 json_data = file.read()
                 data = cls.from_json_string(json_data)
-                instances = [cls.create(**instance) for instance in data]
-                return instances
+                return [cls.create(**instance) for instance in data]
         except FileNotFoundError:
             return []
